@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif !important;
+    color: white;
+}
+
+body {
+    background: linear-gradient(267deg, #3ff0c2, #2464e4, #1f2d29);
+    background-size: 600% 600%;
+    display: flex;
+    justify-content: center;
+    -webkit-animation: AnimationName 24s ease infinite;
+    -moz-animation: AnimationName 24s ease infinite;
+    -o-animation: AnimationName 24s ease infinite;
+    animation: AnimationName 24s ease infinite;
+}
+
+.volver{
+    left: 20px;
+    top: 20px;
+    position: fixed;
+    float: left;
+    width: 10%;
+    height: 30px;
+    font-size: 15px;
+    background-color: rgb(48, 133, 217);
+    border: none;
+    color: white;
+    margin: 20px;
+    box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+    border-radius: 3px;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.volver:hover {
+    background-color: rgb(37, 104, 172);
+    color: white;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}
+
+@-o-keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}
+
+h1{
+    padding: 10px;
+    text-align: center;
+}
+
+h2{
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+h3{
+    margin-left: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+p{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-right: 50px;
+    margin-left: 50px;
+    text-align: justify;
+}
+
+img{
+    border: solid white 1px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    padding: 10px;
+    border-radius: 20px;
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    box-shadow: 14px 14px 20px 0 rgba(20, 20, 20, 0.3);
+    width: 250px;
+    height: 200px;
+    transition: all .2s ease-in-out; 
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -ms-transition: all .2s ease-in-out;
+}
+
+img:hover{
+    width: 300px;
+    height: 250px;   
+}
+
+li{
+    padding: 10px;
+    text-align: justify;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.fondo {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    padding: 1rem;
+    width: 60vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}

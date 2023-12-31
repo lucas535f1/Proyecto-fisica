@@ -1,0 +1,148 @@
+* {
+    font-family: 'Montserrat', sans-serif !important;
+
+}
+
+body {
+    background: linear-gradient(267deg, #3ff0c2, #2464e4, #1f2d29);
+    background-size: 600% 600%;
+
+    -webkit-animation: AnimationName 24s ease infinite;
+    -moz-animation: AnimationName 24s ease infinite;
+    -o-animation: AnimationName 24s ease infinite;
+    animation: AnimationName 24s ease infinite;
+
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caja1{
+display: flex;
+flex-direction: row;
+}
+
+div p{
+    margin: 10px;
+    color: white;
+    font-size: 12px !important;
+    margin-bottom: 20px !important;
+}
+
+div img{
+    width: 20%;
+}
+
+.fondo {
+    height: 80vh;
+    width: 60vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu{
+    padding-top: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-direction: column;
+    height: 60vh;
+    width: 60vw;
+}
+
+.titulo {
+    margin-top: 4%;
+    text-align: center;
+    justify-content: center;
+    color: white;
+    font-size: 3em;
+    display: block;
+}
+
+div a{
+    width: 50%;
+    height: 50px;
+    font-size: 20px;
+    background-color: rgb(48, 133, 217);
+    border: none;
+    color: white;
+    margin-top: 23px;
+    box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+    border-radius: 5px;
+    transition: all 0.3s;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div a:hover{
+    background-color: rgb(37, 104, 172);
+    color: white;
+    width: 55%;
+    height: 55px;
+    font-size: 22px;
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}
+
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}
+
+@-o-keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}
+
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 60%
+    }
+
+    50% {
+        background-position: 100% 41%
+    }
+
+    100% {
+        background-position: 0% 60%
+    }
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo de una Carga</title>
+    <link rel="stylesheet" href="../css/carga.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="shortcut icon" href="../img/icono.png">
+
+</head>
+
+<body>
+    <a class="volver" href="../">Volver</a>
+    <div id="alert"></div>
+    <div class="container">
+        <div class="containerCalculadora">
+            <form method="POST" action="" id="form" class="formCalculadora">
+
+                <div class="input incognita">
+                    <label for="incognita">Incógnita</label>
+                    <div>
+                        <select name="incognita" id="incognita" onchange="selIncognita()">
+                            <option value="fuerza">Fuerza</option>
+                            <option value="carga">Carga</option>
+                            <option value="velocidad">Velocidad</option>
+                            <option value="campo">Campo</option>
+                            <option value="angulo">Ángulo</option>
+                        </select>
+                        <label class="unidades"></label>
+                    </div>
+                </div>
+
+                <div class="divRange">
+                    <label for="customRange2" class="form-label">Cifras significativas</label>
+                    <input type="range" class="form-range slider" value="2" min="1" max="10" id="customRange2"
+                        id="alerta">
+                    <div>
+                        <input type="number" max="10" min="0" value="2" name="cs" id="cs"
+                            class="form-control exponente">
+                        <label class="unidades"></label>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <label for="fuerzaC">Fuerza</label>
+                    <input type="number" step="0.000000001" disabled name="fuerzaC" id="fuerzaC"
+                        class="form-control coeficiente">
+                    <span>x10^</span>
+                    <div>
+                        <input type="number" step="1" max="99" min="-99" disabled name="fuerzaE" id="fuerzaE"
+                            class="form-control exponente">
+                        <label class="unidades">N</label>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <label for="cargaC">Carga
+                        <div class="eyp">
+                            <div class="proton" onclick="proton()"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                </svg>
+                            </div>
+                            <div class="electron" onclick="electron()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-dash" viewBox="0 0 16 16">
+                                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                </svg>
+                            </div>
+                        </div>
+                    </label>
+                    <input type="number" step="0.000000001" name="cargaC" id="cargaC" class="form-control coeficiente">
+                    <span>x10^</span>
+                    <div>
+                        <input type="number" step="1" max="99" min="-99" name="cargaE" id="cargaE"
+                            class="form-control exponente">
+                        <label class="unidades">C</label>
+                    </div>
+                </div>
+
+                <div class="input">
+                    <label for="velocidadC">Velocidad</label>
+                    <input type="number" step="0.000000001" name="velocidadC" id="velocidadC"
+                        class="form-control coeficiente">
+                    <span>x10^</span>
+                    <div>
+                        <input type="number" step="1" max="99" min="-99" name="velocidadE" id="velocidadE"
+                            class="form-control exponente">
+                        <label class="unidades">m/s</label>
+                    </div>
+                </div>
+                <div class="input">
+                    <label for="campoC">Campo magnético</label>
+                    <input type="number" step="0.000000001" name="campoC" id="campoC" class="form-control coeficiente">
+                    <span>x10^</span>
+                    <div>
+                        <input type="number" step="1" max="99" min="-99" name="campoE" id="campoE"
+                            class="form-control exponente">
+                        <label class="unidades">T</label>
+                    </div>
+                </div>
+
+                <div class="angulos">
+                    <div class="divRange">
+                        <label for="customRange2" class="form-label slider">Ángulo campo <span
+                                class="subtitulo">respecto a eje horizontal, horario</label>
+                        <input type="range" class="form-range" value="0" min="0" max="359" id="campoRange" id="alerta">
+                        <div>
+                            <input type="number" max=359" min="0" value="0" name="cs" id="campoAngulo"
+                                class="form-control exponente">
+                            <label class="unidades">°</label>
+                        </div>
+                    </div>
+
+                    <div class="divRange">
+                        <label for="customRange2" class="form-label slider">Ángulo velocidad <span
+                                class="subtitulo">respecto a eje horizontal, horario</span></label>
+                        <input type="range" class="form-range" value="0" min="0" max="359" id="velocidadRange"
+                            id="alerta">
+                        <div>
+                            <input type="number" max="359" min="0" value="0" name="cs" id="velocidadAngulo"
+                                class="form-control exponente">
+                            <label class="unidades">°</label>
+                        </div>
+                    </div>
+
+                    <div class="divRange">
+                        <label for="customRange2" class="form-label slider">Ángulo <span class="subtitulo">velocidad
+                                respecto a campo</span></label>
+                        <input type="range" class="form-range" value="0" min="-180" max="180" id="anguloRange"
+                            id="alerta">
+                        <div>
+                            <div class="btn-group">
+                                <input type="radio" id="antiHorario" name="sentido" value="antiHorario"
+                                    class="d-none antiHorario">
+                                <label id="antiHorarioLabel" class="btn btn-outline-secondary antiHorario antiHorarioLabel"
+                                    onclick="setAntiHorario()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-counterclockwise svgSentido antiHorario" viewBox="0 0 16 16">
+                                        <path class="pathSentido antiHorario" fill-rule="evenodd"
+                                            d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"></path>
+                                        <path class="pathSentido antiHorario"
+                                            d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z">
+                                        </path>
+                                    </svg>
+                                </label>
+
+                                <input type="radio" id="horario" name="sentido" value="horario" class="d-none horario"
+                                    checked="true">
+                                <label id="horarioLabel" class="btn btn-outline-secondary horario horarioLabel" onclick="setHorario()"
+                                    checked="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-clockwise horario svgSentido" viewBox="0 0 16 16"
+                                        checked="true">
+                                        <path class="pathSentido horario" fill-rule="evenodd"
+                                            d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"
+                                            checked="true">
+                                        </path>
+                                        <path class="pathSentido horario"
+                                            d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"
+                                            checked="true">
+                                        </path>
+                                    </svg>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <input type="number" max="180" min="0" value="0" name="angulo" id="angulo"
+                                class="form-control exponente">
+                            <label class="unidades">°</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="calcular">Calcular</button>
+            </form>
+
+        </div>
+        <div class="containerDivisor">
+            <div class="divisor"></div>
+        </div>
+        <div class="containerGrafica">
+
+            <div class="divTitulo">
+                <h1>Campo Magnético sobre Carga Puntual</h1>
+            </div>
+
+            <div class="divGrafica">
+
+                <div class="grafica" id="grafica">
+                    <div class="paloCampo" id="paloCampo">
+                        <svg class="punta" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path class="puntaCampo"
+                                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                        </svg>
+                    </div>
+                    <div class="paloVelocidad" id="paloVelocidad">
+                        <svg class="punta" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                            <path class="puntaVelocidad"
+                                d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                        </svg>
+                    </div>
+                    <div class="placeholderCarga"></div>
+                </div>
+                <div class="referencia">
+                    <h3 class="tituloC">Vector campo<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg></h3>
+                    <h3 class="tituloV">Vector velocidad<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                        </svg></h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <script src="./carga.js"></script>
+    <script>
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
